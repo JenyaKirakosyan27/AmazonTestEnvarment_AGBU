@@ -1,7 +1,9 @@
 from selenium import webdriver
 from pages_.loginPage import LoginPage
 from pages_.navigationBar import NavigationBar
+from pages_.searchResultPage import SearchResultPage
 from pages_.cartPage import CartPage
+
 
 
 driver = webdriver.Chrome()
@@ -13,18 +15,24 @@ driver.get("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.r
 loginPageObj = LoginPage(driver)
 loginPageObj.fill_username_fild("jenyakirakosyan27@gmail.com")
 loginPageObj.click_to_continue_button()
-loginPageObj.fill_password_fild("//eva[@tsaturyan]")
+loginPageObj.fill_password_fild("/tsaturyan99")
 loginPageObj.click_to_signin_button()
 
 
 navigationBarObj = NavigationBar(driver)
-navigationBarObj.click_to_cart_button()
+navigationBarObj.fill_search_field("Dja 3 pro")
+navigationBarObj.click_to_search_button()
+
+navigationBarObj.click_to_first_product()
+#navigationBarObj.click_to_cart_button()
 
 
-cartPageObj = CartPage(driver)
-cartPageObj.delete_firstProduct_from_cart()
+searchResultPageObj = SearchResultPage(driver)
+searchResultPageObj.click_to_add_to_cart_button()
 
-cdcd
+
+# cartPageObj = CartPage(driver)
+# cartPageObj.save_for_later_firstProduct_from_cart()
 
 
 driver.close()
