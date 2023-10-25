@@ -20,7 +20,7 @@ continueButtonElement = driver.find_element(By.ID, "continue")
 continueButtonElement.click()
 
 
-passwordFildElement = driver.find_element(By.ID,"ap_password")
+passwordFildElement = driver.find_element(By.ID, "ap_password")
 passwordFildElement.clear()
 passwordFildElement.send_keys("//eva[@tsaturyan]")
 
